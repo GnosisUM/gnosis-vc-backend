@@ -55,3 +55,8 @@ async def get_AI_rating(request: Request):
 
     prediction = model.predict(X)
     return {'prediction':np.array(prediction).tolist()}
+
+@app.post("/test_receive")
+async def get_body(request: Request):
+    print(request.json())
+    return await request.json()
